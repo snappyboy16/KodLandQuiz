@@ -1,11 +1,12 @@
-from flask import Flask
+from app import app
 from flask import render_template, request
-
-app = Flask(__name__)
+from flask_login import current_user, login_user
+from flask_login import login_required
 
 
 @app.route('/')
-def home():
+@app.route('/index')
+def main():
     return render_template('index.html')
 
 
@@ -20,14 +21,12 @@ def login():
 
 
 @app.route('/quiz')
+@login_required
 def quiz():
     return render_template('quiz.html')
 
 
 @app.route('/leaders')
+@login_required
 def leaders():
     return render_template('leaders.html')
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
