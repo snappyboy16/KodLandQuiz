@@ -6,27 +6,27 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return 'Hello'
+    return render_template('index.html')
 
 
 @app.route('/register')
 def register():
-    return 'Register'
+    return render_template('register.html')
 
 
 @app.route('/login')
 def login():
-    return 'Login'
+    return render_template('login.html')
 
 
 @app.route('/quiz')
 def quiz():
-    return 'Quiz'
+    return render_template('quiz.html')
 
 
 @app.route('/leaders')
 def leaders():
-    return 'Leaders'
+    return render_template('leaders.html')
 
 
 if __name__ == '__main__':
